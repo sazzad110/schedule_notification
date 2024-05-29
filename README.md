@@ -7,7 +7,7 @@ A new Flutter project.
     add this permission in android manifest
         <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
         <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
-    also add this lines of code before     </application>
+## also add this lines of code before     </application>
     <receiver android:exported="false" android:name="com.dexterous.flutterlocalnotifications.ScheduledNotificationReceiver" />
             <receiver android:exported="false" android:name="com.dexterous.flutterlocalnotifications.ScheduledNotificationBootReceiver">
                 <intent-filter>
