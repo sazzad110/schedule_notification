@@ -12,7 +12,7 @@ class NotificationHelper {
     tz.initializeTimeZones();
   }
 
-  static scheduledNotification(String title, String body) async {
+  static scheduledNotifications(String title, String body, int minutes) async {
     var androidDetails = AndroidNotificationDetails(
       'important notification',
       'My channel',
@@ -23,14 +23,17 @@ class NotificationHelper {
     var notificationDetails =
         NotificationDetails(android: androidDetails, iOS: iosDetails);
 
-    await _notification.zonedSchedule(
-        0,
-        title,
-        body,
-        tz.TZDateTime.now(tz.local).add(const Duration(seconds: 10)),
-        notificationDetails,
-        uiLocalNotificationDateInterpretation:
-            UILocalNotificationDateInterpretation.absoluteTime,
-        androidScheduleMode: AndroidScheduleMode.exactAllowWhileIdle);
+    for (int i = 1; i <= minutes; i++) {
+      await _notification.zonedSchedule(
+          i,
+          title,
+          body,
+          tz.TZDateTime.now(tz.local).add(Duration(minutes: i)),
+          notificationDetails,
+          uiLocalNotificationDateInterpretation:
+              UILocalNotificationDateInterpretation.absoluteTime,
+          androidScheduleMode: AndroidScheduleMode.exactAllowWhileIdle,
+          matchDateTimeComponents: DateTimeComponents.time);
+    }
   }
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:schedule_notification/notifation_helper.dart';
+
+import 'notifation_helper.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -36,13 +37,13 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("scheduled notifiation"),
+        title: const Text("Scheduled Notification"),
       ),
       body: Center(
         child: ElevatedButton(
           onPressed: () {
-            NotificationHelper.scheduledNotification(
-                'scheduled', 'this is scheduled notifiaio');
+            NotificationHelper.scheduledNotifications(
+                'Scheduled', 'This is a scheduled notification', 5);
           },
           child: const Text("Scheduled Now"),
         ),
