@@ -1,6 +1,6 @@
 #Permission need in androidmanifest
-<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
-<uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
+#<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+#<uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
 
 also add this lines of code before </application>
 
